@@ -1,0 +1,46 @@
+.
+├── HELP.md
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── project-structure.txt
+├── src
+│   ├── main
+│   │   ├── data
+│   │   │   └── Electric_Vehicle_Population_Data.csv
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── electricvehicles
+│   │   │           └── electric_vehicles_app
+│   │   │               └── ElectricVehiclesAppApplication.java
+│   │   └── resources
+│   │       ├── application.properties
+│   │       ├── static
+│   │       └── templates
+│   │           └── index.html
+│   └── test
+│       └── java
+│           └── com
+│               └── electricvehicles
+│                   └── electric_vehicles_app
+│                       └── ElectricVehiclesAppApplicationTests.java
+└── target
+    ├── classes
+    │   ├── application.properties
+    │   ├── com
+    │   │   └── electricvehicles
+    │   │       └── electric_vehicles_app
+    │   │           └── ElectricVehiclesAppApplication.class
+    │   └── templates
+    │       └── index.html
+    ├── generated-sources
+    │   └── annotations
+    ├── generated-test-sources
+    │   └── test-annotations
+    └── test-classes
+        └── com
+            └── electricvehicles
+                └── electric_vehicles_app
+                    └── ElectricVehiclesAppApplicationTests.class
+
+30 directories, 14 files
