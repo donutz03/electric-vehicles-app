@@ -7,9 +7,10 @@ import javax.annotation.PostConstruct;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 @Service
 public class ElectricVehicleService {
@@ -24,7 +25,7 @@ public class ElectricVehicleService {
             while ((line = reader.readNext()) != null) {
                 if (isFirstLine) {
                     isFirstLine = false;
-                    continue; // Skip header
+                    continue;
                 }
                 ElectricVehicle ev = new ElectricVehicle();
                 ev.setVin(line[0]);
@@ -52,5 +53,44 @@ public class ElectricVehicleService {
 
     public List<ElectricVehicle> getFirst20ElectricVehicles() {
         return electricVehicles.subList(0, Math.min(20, electricVehicles.size()));
+    }
+
+
+    public long getTotalVehicles() {
+        return electricVehicles.size();
+    }
+
+
+    public Map<String, Long> getVehicleTypeDistribution() {
+        return electricVehicles.stream()
+                .collect(Collectors.groupingBy(ElectricVehicle::getElectricVehicleType, Collectors.counting()));
+    }
+
+
+    public double getAverageElectricRange() {
+        return electricVehicles.stream()
+                .mapToInt(ev -> {
+                    try {
+                        return Integer.parseInt(ev.getElectricRange());
+                    } catch (NumberFormatException e) {
+                        return 0;
+                    }
+                })
+                .average()
+                .orElse(0.0);
+    }
+
+
+    public Map<String, Long> getVehiclesByManufacturer() {
+        return electricVehicles.stream()
+                .collect(Collectors.groupingBy(ElectricVehicle::getMake, Collectors.counting()));
+    }
+
+
+    public List<ElectricVehicle> searchVehicles(String make, String model) {
+        return electricVehicles.stream()
+                .filter(ev -> (make == null || ev.getMake().equalsIgnoreCase(make)) &&
+                        (model == null || ev.getModel().equalsIgnoreCase(model)))
+                .collect(Collectors.toList());
     }
 }
