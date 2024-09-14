@@ -13,7 +13,11 @@ public class ElectricVehicleController {
 
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("vehicles", electricVehicleService.getFirst20ElectricVehicles());
-        return "index";
+        try {
+            model.addAttribute("vehicles", electricVehicleService.getFirst20ElectricVehicles());
+            return "index";
+        } catch (Exception e) {
+            return "redirect:/error";
+        }
     }
 }
