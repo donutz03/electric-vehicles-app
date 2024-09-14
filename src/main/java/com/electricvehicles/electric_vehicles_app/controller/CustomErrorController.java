@@ -1,5 +1,5 @@
 // src/main/java/com/electricvehicles/electric_vehicles_app/ErrorController.java
-package com.electricvehicles.electric_vehicles_app;
+package com.electricvehicles.electric_vehicles_app.controller;
 
 import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;

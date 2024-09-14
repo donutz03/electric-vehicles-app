@@ -12,6 +12,7 @@
 │   │   │   └── com
 │   │   │       └── electricvehicles
 │   │   │           └── electric_vehicles_app
+│   │   │               ├── CustomErrorController.java
 │   │   │               ├── ElectricVehicle.java
 │   │   │               ├── ElectricVehicleController.java
 │   │   │               ├── ElectricVehicleService.java
@@ -20,6 +21,7 @@
 │   │       ├── application.properties
 │   │       ├── static
 │   │       └── templates
+│   │           ├── error.html
 │   │           └── index.html
 │   └── test
 │       └── java
@@ -33,11 +35,13 @@
     │   ├── com
     │   │   └── electricvehicles
     │   │       └── electric_vehicles_app
+    │   │           ├── CustomErrorController.class
     │   │           ├── ElectricVehicle.class
     │   │           ├── ElectricVehicleController.class
     │   │           ├── ElectricVehicleService.class
     │   │           └── ElectricVehiclesAppApplication.class
     │   └── templates
+    │       ├── error.html
     │       └── index.html
     ├── generated-sources
     │   └── annotations
@@ -49,4 +53,4 @@
                 └── electric_vehicles_app
                     └── ElectricVehiclesAppApplicationTests.class
 
-30 directories, 20 files
+30 directories, 24 files
