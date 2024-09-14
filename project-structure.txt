@@ -12,45 +12,82 @@
 │   │   │   └── com
 │   │   │       └── electricvehicles
 │   │   │           └── electric_vehicles_app
-│   │   │               ├── CustomErrorController.java
-│   │   │               ├── ElectricVehicle.java
-│   │   │               ├── ElectricVehicleController.java
-│   │   │               ├── ElectricVehicleService.java
-│   │   │               └── ElectricVehiclesAppApplication.java
+│   │   │               ├── ElectricVehiclesAppApplication.java
+│   │   │               ├── controller
+│   │   │               │   ├── CustomErrorController.java
+│   │   │               │   └── ElectricVehicleController.java
+│   │   │               ├── model
+│   │   │               │   └── ElectricVehicle.java
+│   │   │               ├── repository
+│   │   │               │   └── ElectricVehicleRepository.java
+│   │   │               └── service
+│   │   │                   └── ElectricVehicleService.java
 │   │   └── resources
 │   │       ├── application.properties
 │   │       ├── static
 │   │       └── templates
 │   │           ├── error.html
-│   │           └── index.html
+│   │           ├── index.html
+│   │           └── statistics.html
 │   └── test
 │       └── java
 │           └── com
 │               └── electricvehicles
 │                   └── electric_vehicles_app
-│                       └── ElectricVehiclesAppApplicationTests.java
+│                       ├── ElectricVehiclesAppApplicationTests.java
+│                       ├── controller
+│                       │   └── ElectricVehicleControllerTests.java
+│                       └── service
+│                           └── ElectricVehicleServiceTests.java
 └── target
     ├── classes
     │   ├── application.properties
     │   ├── com
     │   │   └── electricvehicles
     │   │       └── electric_vehicles_app
-    │   │           ├── CustomErrorController.class
-    │   │           ├── ElectricVehicle.class
-    │   │           ├── ElectricVehicleController.class
-    │   │           ├── ElectricVehicleService.class
-    │   │           └── ElectricVehiclesAppApplication.class
+    │   │           ├── ElectricVehiclesAppApplication.class
+    │   │           ├── controller
+    │   │           │   ├── CustomErrorController.class
+    │   │           │   └── ElectricVehicleController.class
+    │   │           ├── model
+    │   │           │   └── ElectricVehicle.class
+    │   │           ├── repository
+    │   │           │   └── ElectricVehicleRepository.class
+    │   │           └── service
+    │   │               └── ElectricVehicleService.class
     │   └── templates
     │       ├── error.html
-    │       └── index.html
+    │       ├── index.html
+    │       └── statistics.html
     ├── generated-sources
     │   └── annotations
     ├── generated-test-sources
     │   └── test-annotations
+    ├── maven-status
+    │   └── maven-compiler-plugin
+    │       ├── compile
+    │       │   └── default-compile
+    │       │       ├── createdFiles.lst
+    │       │       └── inputFiles.lst
+    │       └── testCompile
+    │           └── default-testCompile
+    │               ├── createdFiles.lst
+    │               └── inputFiles.lst
+    ├── surefire-reports
+    │   ├── TEST-com.electricvehicles.electric_vehicles_app.ElectricVehiclesAppApplicationTests.xml
+    │   ├── TEST-com.electricvehicles.electric_vehicles_app.controller.ElectricVehicleControllerTests.xml
+    │   ├── TEST-com.electricvehicles.electric_vehicles_app.service.ElectricVehicleServiceTests.xml
+    │   ├── com.electricvehicles.electric_vehicles_app.ElectricVehiclesAppApplicationTests.txt
+    │   ├── com.electricvehicles.electric_vehicles_app.controller.ElectricVehicleControllerTests.txt
+    │   └── com.electricvehicles.electric_vehicles_app.service.ElectricVehicleServiceTests.txt
     └── test-classes
         └── com
             └── electricvehicles
                 └── electric_vehicles_app
-                    └── ElectricVehiclesAppApplicationTests.class
+                    ├── ElectricVehiclesAppApplicationTests.class
+                    ├── controller
+                    │   └── ElectricVehicleControllerTests.class
+                    └── service
+                        └── ElectricVehicleServiceTests.class
 
-30 directories, 24 files
+49 directories, 42 files

@@ -6,14 +6,12 @@
 <body>
 <h1>Electric Vehicles</h1>
 
-<!-- Search Form -->
 <form id="searchForm">
     <label for="make"></label><input type="text" id="make" placeholder="Make">
     <label for="model"></label><input type="text" id="model" placeholder="Model">
     <button type="button" onclick="searchVehicles()">Search</button>
 </form>
 
-<!-- Results Table -->
 <h2>Search Results</h2>
 <table id="resultsTable" border="1">
     <thead>
@@ -37,12 +35,11 @@
     </tr>
     </thead>
     <tbody>
-    <!-- This will be filled dynamically by JavaScript -->
+
     </tbody>
 </table>
 
 <h2>All Electric Vehicles</h2>
-<!-- Existing Table for First 20 Electric Vehicles -->
 <table border="1">
     <thead>
     <tr>
@@ -98,9 +95,8 @@
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                // Clear and populate the results table with the search data
                 const table = document.getElementById('resultsTable').getElementsByTagName('tbody')[0];
-                table.innerHTML = ''; // Clear existing content
+                table.innerHTML = '';
 
                 data.forEach(vehicle => {
                     const row = document.createElement('tr');

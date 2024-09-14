@@ -70,4 +70,9 @@ public class ElectricVehicleController {
                                                 @RequestParam(required = false) String model) {
         return electricVehicleService.searchVehicles(make, model);
     }
+
+    @GetMapping("/map")
+    public String showMap() {
+        return "map";
+    }
 }
