@@ -12,6 +12,9 @@
 │   │   │   └── com
 │   │   │       └── electricvehicles
 │   │   │           └── electric_vehicles_app
+│   │   │               ├── ElectricVehicle.java
+│   │   │               ├── ElectricVehicleController.java
+│   │   │               ├── ElectricVehicleService.java
 │   │   │               └── ElectricVehiclesAppApplication.java
 │   │   └── resources
 │   │       ├── application.properties
@@ -30,6 +33,9 @@
     │   ├── com
     │   │   └── electricvehicles
     │   │       └── electric_vehicles_app
+    │   │           ├── ElectricVehicle.class
+    │   │           ├── ElectricVehicleController.class
+    │   │           ├── ElectricVehicleService.class
     │   │           └── ElectricVehiclesAppApplication.class
     │   └── templates
     │       └── index.html
@@ -43,4 +49,4 @@
                 └── electric_vehicles_app
                     └── ElectricVehiclesAppApplicationTests.class
 
-30 directories, 14 files
+30 directories, 20 files

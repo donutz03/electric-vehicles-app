@@ -1,10 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Electric Vehicles</title>
 </head>
 <body>
-
+<h1>Electric Vehicles</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>VIN</th>
+        <th>County</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Postal Code</th>
+        <th>Model Year</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Type</th>
+        <th>CAFV Eligibility</th>
+        <th>Electric Range</th>
+        <th>Base MSRP</th>
+        <th>Legislative District</th>
+        <th>Vehicle Location</th>
+        <th>Electric Utility</th>
+        <th>Census Tract</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vehicle : ${vehicles}">
+        <td th:text="${vehicle.vin}"></td>
+        <td th:text="${vehicle.county}"></td>
+        <td th:text="${vehicle.city}"></td>
+        <td th:text="${vehicle.state}"></td>
+        <td th:text="${vehicle.postalCode}"></td>
+        <td th:text="${vehicle.modelYear}"></td>
+        <td th:text="${vehicle.make}"></td>
+        <td th:text="${vehicle.model}"></td>
+        <td th:text="${vehicle.electricVehicleType}"></td>
+        <td th:text="${vehicle.cafvEligibility}"></td>
+        <td th:text="${vehicle.electricRange}"></td>
+        <td th:text="${vehicle.baseMsrp}"></td>
+        <td th:text="${vehicle.legislativeDistrict}"></td>
+        <td th:text="${vehicle.vehicleLocation}"></td>
+        <td th:text="${vehicle.electricUtility}"></td>
+        <td th:text="${vehicle.censusTract}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
