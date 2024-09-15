@@ -5,6 +5,7 @@ import com.electricvehicles.electric_vehicles_app.service.ElectricVehicleService
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @Controller
 public class ElectricVehicleController {
 
@@ -75,4 +77,13 @@ public class ElectricVehicleController {
     public String showMap() {
         return "map";
     }
+
+    @GetMapping("/api/vehicles")
+    @ResponseBody
+    public List<ElectricVehicle> getVehicles(@RequestParam(defaultValue = "0") int page,
+                                             @RequestParam(defaultValue = "100") int size) {
+        return electricVehicleService.getVehicles(page, size);
+    }
+
+
 }

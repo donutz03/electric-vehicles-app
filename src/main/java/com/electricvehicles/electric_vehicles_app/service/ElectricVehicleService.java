@@ -55,9 +55,21 @@ public class ElectricVehicleService {
         return electricVehicles.subList(0, Math.min(20, electricVehicles.size()));
     }
 
+    public List<ElectricVehicle> getAllElectricVehicles() {
+        return new ArrayList<>(electricVehicles);
+    }
+
 
     public long getTotalVehicles() {
         return electricVehicles.size();
+    }
+
+    public List<ElectricVehicle> getVehicles(int page, int size) {
+        int skip = page * size;
+        return electricVehicles.stream()
+                .skip(skip)
+                .limit(size)
+                .collect(Collectors.toList());
     }
 
 
