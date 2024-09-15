@@ -1,7 +1,51 @@
 .
 ├── HELP.md
+├── frontend
+│   ├── README.md
+│   ├── build
+│   │   ├── asset-manifest.json
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   ├── robots.txt
+│   │   └── static
+│   │       ├── css
+│   │       │   ├── main.f855e6bc.css
+│   │       │   └── main.f855e6bc.css.map
+│   │       ├── js
+│   │       │   ├── 453.8ab44547.chunk.js
+│   │       │   ├── 453.8ab44547.chunk.js.map
+│   │       │   ├── main.525e4bd5.js
+│   │       │   ├── main.525e4bd5.js.LICENSE.txt
+│   │       │   └── main.525e4bd5.js.map
+│   │       └── media
+│   │           └── logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   └── robots.txt
+│   └── src
+│       ├── App.css
+│       ├── App.js
+│       ├── App.test.js
+│       ├── components
+│       │   └── ElectricVehicles.js
+│       ├── index.css
+│       ├── index.js
+│       ├── logo.svg
+│       ├── reportWebVitals.js
+│       └── setupTests.js
 ├── mvnw
 ├── mvnw.cmd
+├── package-lock.json
+├── package.json
 ├── pom.xml
 ├── project-structure.txt
 ├── src
@@ -25,9 +69,29 @@
 │   │   └── resources
 │   │       ├── application.properties
 │   │       ├── static
+│   │       │   ├── asset-manifest.json
+│   │       │   ├── favicon.ico
+│   │       │   ├── index.html
+│   │       │   ├── logo192.png
+│   │       │   ├── logo512.png
+│   │       │   ├── manifest.json
+│   │       │   ├── robots.txt
+│   │       │   └── static
+│   │       │       ├── css
+│   │       │       │   ├── main.f855e6bc.css
+│   │       │       │   └── main.f855e6bc.css.map
+│   │       │       ├── js
+│   │       │       │   ├── 453.8ab44547.chunk.js
+│   │       │       │   ├── 453.8ab44547.chunk.js.map
+│   │       │       │   ├── main.525e4bd5.js
+│   │       │       │   ├── main.525e4bd5.js.LICENSE.txt
+│   │       │       │   └── main.525e4bd5.js.map
+│   │       │       └── media
+│   │       │           └── logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg
 │   │       └── templates
 │   │           ├── error.html
 │   │           ├── index.html
+│   │           ├── map.html
 │   │           └── statistics.html
 │   └── test
 │       └── java
@@ -55,9 +119,30 @@
     │   │           │   └── ElectricVehicleRepository.class
     │   │           └── service
     │   │               └── ElectricVehicleService.class
+    │   ├── static
+    │   │   ├── asset-manifest.json
+    │   │   ├── favicon.ico
+    │   │   ├── index.html
+    │   │   ├── logo192.png
+    │   │   ├── logo512.png
+    │   │   ├── manifest.json
+    │   │   ├── robots.txt
+    │   │   └── static
+    │   │       ├── css
+    │   │       │   ├── main.f855e6bc.css
+    │   │       │   └── main.f855e6bc.css.map
+    │   │       ├── js
+    │   │       │   ├── 453.8ab44547.chunk.js
+    │   │       │   ├── 453.8ab44547.chunk.js.map
+    │   │       │   ├── main.525e4bd5.js
+    │   │       │   ├── main.525e4bd5.js.LICENSE.txt
+    │   │       │   └── main.525e4bd5.js.map
+    │   │       └── media
+    │   │           └── logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg
     │   └── templates
     │       ├── error.html
     │       ├── index.html
+    │       ├── map.html
     │       └── statistics.html
     ├── generated-sources
     │   └── annotations
@@ -90,4 +175,4 @@
                     └── service
                         └── ElectricVehicleServiceTests.class
 
-49 directories, 42 files
+67 directories, 109 files
