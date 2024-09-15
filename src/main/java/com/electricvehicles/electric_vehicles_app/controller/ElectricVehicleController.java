@@ -85,5 +85,46 @@ public class ElectricVehicleController {
         return electricVehicleService.getVehicles(page, size);
     }
 
+    @GetMapping("/api/statistics/vehicle-count-by-location")
+    @ResponseBody
+    public Map<String, Map<String, Long>> getVehicleCountByCountyAndState() {
+        return electricVehicleService.getVehicleCountByCountyAndState();
+    }
+
+    @GetMapping("/api/statistics/average-range-by-make-model")
+    @ResponseBody
+    public Map<String, Map<String, Double>> getAverageRangeByMakeAndModel() {
+        return electricVehicleService.getAverageRangeByMakeAndModel();
+    }
+
+    @GetMapping("/api/statistics/registration-trends")
+    @ResponseBody
+    public Map<Integer, Long> getRegistrationTrendsByYear() {
+        return electricVehicleService.getRegistrationTrendsByYear();
+    }
+
+    @GetMapping("/api/statistics/cafv-eligibility-summary")
+    @ResponseBody
+    public Map<String, Long> getCAFVEligibilitySummary() {
+        return electricVehicleService.getCAFVEligibilitySummary();
+    }
+
+    @GetMapping("/api/statistics/vehicle-distribution-heatmap")
+    @ResponseBody
+    public List<Map<String, Object>> getVehicleDistributionHeatmapData() {
+        return electricVehicleService.getVehicleDistributionHeatmapData();
+    }
+
+    @GetMapping("/api/vehicles/search")
+    @ResponseBody
+    public List<ElectricVehicle> searchVehiclesByYearAndMake(@RequestParam int year, @RequestParam String make) {
+        return electricVehicleService.searchVehiclesByYearAndMake(year, make);
+    }
+
+    @GetMapping("/api/statistics/manufacturer-stats")
+    @ResponseBody
+    public Map<String, Map<String, Object>> getManufacturerStatistics() {
+        return electricVehicleService.getManufacturerStatistics();
+    }
 
 }

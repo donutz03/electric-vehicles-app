@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+#contain API key
+frontend/src/components/MapComponent.js
+src/main/resources/templates/map.html
