@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 
-function Navbar() {
+function MaterialNavbar() {
     return (
         <AppBar position="static">
             <Toolbar>
@@ -29,4 +29,4 @@ function Navbar() {
     );
 }
 
-export default Navbar;
+export default MaterialNavbar;

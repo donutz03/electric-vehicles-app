@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Electric Vehicles</title>
+</head>
+<body>
+<h1>Electric Vehicles</h1>
 
+<form id="searchForm">
+    <label for="make"></label><input type="text" id="make" placeholder="Make">
+    <label for="model"></label><input type="text" id="model" placeholder="Model">
+    <button type="button" onclick="searchVehicles()">Search</button>
+</form>
+
+<h2>Search Results</h2>
+<table id="resultsTable" border="1">
+    <thead>
+    <tr>
+        <th>VIN</th>
+        <th>County</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Postal Code</th>
+        <th>Model Year</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Type</th>
+        <th>CAFV Eligibility</th>
+        <th>Electric Range</th>
+        <th>Base MSRP</th>
+        <th>Legislative District</th>
+        <th>Vehicle Location</th>
+        <th>Electric Utility</th>
+        <th>Census Tract</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<h2>All Electric Vehicles</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>VIN</th>
+        <th>County</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Postal Code</th>
+        <th>Model Year</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Type</th>
+        <th>CAFV Eligibility</th>
+        <th>Electric Range</th>
+        <th>Base MSRP</th>
+        <th>Legislative District</th>
+        <th>Vehicle Location</th>
+        <th>Electric Utility</th>
+        <th>Census Tract</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vehicle : ${vehicles}">
+        <td th:text="${vehicle.vin}"></td>
+        <td th:text="${vehicle.county}"></td>
+        <td th:text="${vehicle.city}"></td>
+        <td th:text="${vehicle.state}"></td>
+        <td th:text="${vehicle.postalCode}"></td>
+        <td th:text="${vehicle.modelYear}"></td>
+        <td th:text="${vehicle.make}"></td>
+        <td th:text="${vehicle.model}"></td>
+        <td th:text="${vehicle.electricVehicleType}"></td>
+        <td th:text="${vehicle.cafvEligibility}"></td>
+        <td th:text="${vehicle.electricRange}"></td>
+        <td th:text="${vehicle.baseMsrp}"></td>
+        <td th:text="${vehicle.legislativeDistrict}"></td>
+        <td th:text="${vehicle.vehicleLocation}"></td>
+        <td th:text="${vehicle.electricUtility}"></td>
+        <td th:text="${vehicle.censusTract}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    function searchVehicles() {
+        const make = document.getElementById('make').value;
+        const model = document.getElementById('model').value;
+        let url = '/search?';
+
+        if (make) url += `make=${encodeURIComponent(make)}&`;
+        if (model) url += `model=${encodeURIComponent(model)}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const table = document.getElementById('resultsTable').getElementsByTagName('tbody')[0];
+                table.innerHTML = '';
+
+                data.forEach(vehicle => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                            <td>${vehicle.vin}</td>
+                            <td>${vehicle.county}</td>
+                            <td>${vehicle.city}</td>
+                            <td>${vehicle.state}</td>
+                            <td>${vehicle.postalCode}</td>
+                            <td>${vehicle.modelYear}</td>
+                            <td>${vehicle.make}</td>
+                            <td>${vehicle.model}</td>
+                            <td>${vehicle.electricVehicleType}</td>
+                            <td>${vehicle.cafvEligibility}</td>
+                            <td>${vehicle.electricRange}</td>
+                            <td>${vehicle.baseMsrp}</td>
+                            <td>${vehicle.legislativeDistrict}</td>
+                            <td>${vehicle.vehicleLocation}</td>
+                            <td>${vehicle.electricUtility}</td>
+                            <td>${vehicle.censusTract}</td>
+                        `;
+                    table.appendChild(row);
+                });
+            });
+    }
+</script>
+</body>
+</html>
