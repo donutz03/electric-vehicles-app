@@ -127,4 +127,89 @@ public class ElectricVehicleController {
         return electricVehicleService.getManufacturerStatistics();
     }
 
+    // 1. Electric Utility: Vehicle Count per Utility
+    @GetMapping("/api/statistics/utility-count")
+    @ResponseBody
+    public Map<String, Long> getVehicleCountByElectricUtility() {
+        return electricVehicleService.getVehicleCountByElectricUtility();
+    }
+
+    // 2. Electric Range Statistics per Electric Utility
+    @GetMapping("/api/statistics/range-by-utility")
+    @ResponseBody
+    public Map<String, Map<String, Double>> getElectricRangeStatsByUtility() {
+        return electricVehicleService.getElectricRangeStatsByUtility();
+    }
+
+    // 3. Electric Range Statistics (Overall)
+    @GetMapping("/api/statistics/overall-range")
+    @ResponseBody
+    public Map<String, Double> getOverallElectricRangeStats() {
+        return electricVehicleService.getOverallElectricRangeStats();
+    }
+
+    // 4. Electric Range Statistics by Car Make
+    @GetMapping("/api/statistics/range-by-make")
+    @ResponseBody
+    public Map<String, Map<String, Double>> getElectricRangeStatsByMake() {
+        return electricVehicleService.getElectricRangeStatsByMake();
+    }
+
+    // 5. Electric Range Statistics by City
+    @GetMapping("/api/statistics/range-by-city")
+    @ResponseBody
+    public Map<String, Map<String, Double>> getElectricRangeStatsByCity() {
+        return electricVehicleService.getElectricRangeStatsByCity();
+    }
+
+    // 6. Number of Vehicles per Model Year
+    @GetMapping("/api/statistics/vehicle-count-by-year")
+    @ResponseBody
+    public Map<Integer, Long> getVehicleCountByModelYear() {
+        return electricVehicleService.getVehicleCountByModelYear();
+    }
+
+    // 7. Number of Unique Makes (Brands)
+    @GetMapping("/api/statistics/unique-makes")
+    @ResponseBody
+    public long getUniqueMakesCount() {
+        return electricVehicleService.getUniqueMakesCount();
+    }
+
+    // 8. Number of Cars Present in Each City
+    @GetMapping("/api/statistics/vehicle-count-by-city")
+    @ResponseBody
+    public Map<String, Long> getVehicleCountByCity() {
+        return electricVehicleService.getVehicleCountByCity();
+    }
+
+    // 9. Number of Cars Present in Each County
+    @GetMapping("/api/statistics/vehicle-count-by-county")
+    @ResponseBody
+    public Map<String, Long> getVehicleCountByCounty() {
+        return electricVehicleService.getVehicleCountByCounty();
+    }
+
+    // 10. Number of Make Cars Present in Each County
+    @GetMapping("/api/statistics/make-count-by-county")
+    @ResponseBody
+    public Map<String, Map<String, Long>> getMakeCountByCounty() {
+        return electricVehicleService.getMakeCountByCounty();
+    }
+
+    // 11. Number of Unique Models
+    @GetMapping("/api/statistics/unique-models")
+    @ResponseBody
+    public Map<String, Long> getUniqueModelsCount() {
+        return electricVehicleService.getUniqueModelsCount();
+    }
+
+    // 12. Yearly Electric Range Average per Make
+    @GetMapping("/api/statistics/yearly-range-average-per-make")
+    @ResponseBody
+    public Map<String, Map<Integer, Double>> getYearlyElectricRangeAveragePerMake() {
+        return electricVehicleService.getYearlyElectricRangeAveragePerMake();
+    }
+
+
 }
