@@ -29,6 +29,7 @@
         <th>Electric Range</th>
         <th>Base MSRP</th>
         <th>Legislative District</th>
+        <th>DOL Vehicle ID</th>
         <th>Vehicle Location</th>
         <th>Electric Utility</th>
         <th>Census Tract</th>
@@ -56,6 +57,7 @@
         <th>Electric Range</th>
         <th>Base MSRP</th>
         <th>Legislative District</th>
+        <th>DOL Vehicle ID</th>
         <th>Vehicle Location</th>
         <th>Electric Utility</th>
         <th>Census Tract</th>
@@ -76,6 +78,7 @@
         <td th:text="${vehicle.electricRange}"></td>
         <td th:text="${vehicle.baseMsrp}"></td>
         <td th:text="${vehicle.legislativeDistrict}"></td>
+        <td th:text="${vehicle.DOLVehicleId}">/td>
         <td th:text="${vehicle.vehicleLocation}"></td>
         <td th:text="${vehicle.electricUtility}"></td>
         <td th:text="${vehicle.censusTract}"></td>
@@ -114,6 +117,7 @@
                             <td>${vehicle.electricRange}</td>
                             <td>${vehicle.baseMsrp}</td>
                             <td>${vehicle.legislativeDistrict}</td>
+                            <td th:text="${vehicle.DOLVehicleId}">/td>
                             <td>${vehicle.vehicleLocation}</td>
                             <td>${vehicle.electricUtility}</td>
                             <td>${vehicle.censusTract}</td>
