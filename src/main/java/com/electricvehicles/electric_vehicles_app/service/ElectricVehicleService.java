@@ -1,7 +1,9 @@
 package com.electricvehicles.electric_vehicles_app.service;
 
 import com.electricvehicles.electric_vehicles_app.model.ElectricVehicle;
+import com.electricvehicles.electric_vehicles_app.repository.ElectricVehicleRepository;
 import com.opencsv.CSVReader;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.io.FileReader;
@@ -14,6 +16,13 @@ import org.slf4j.LoggerFactory;
 public class ElectricVehicleService {
     final private List<ElectricVehicle> electricVehicles = new ArrayList<>();
     private static final Logger logger = LoggerFactory.getLogger(ElectricVehicleService.class);
+
+    @Autowired
+    private ElectricVehicleRepository electricVehicleRepository;
+
+    public ElectricVehicle saveVehicle(ElectricVehicle electricVehicle) {
+        return electricVehicleRepository.save(electricVehicle);
+    }
 
     @PostConstruct
     public void loadData() {
@@ -39,6 +48,7 @@ public class ElectricVehicleService {
                 ev.setElectricRange(line[10]);
                 ev.setBaseMsrp(line[11]);
                 ev.setLegislativeDistrict(line[12]);
+                ev.setDOLVehicleId(line[13]);
                 ev.setVehicleLocation(line[14]);
                 ev.setElectricUtility(line[15]);
                 ev.setCensusTract(line[16]);

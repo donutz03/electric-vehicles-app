@@ -3,12 +3,10 @@ package com.electricvehicles.electric_vehicles_app.controller;
 import com.electricvehicles.electric_vehicles_app.model.ElectricVehicle;
 import com.electricvehicles.electric_vehicles_app.service.ElectricVehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -211,5 +209,11 @@ public class ElectricVehicleController {
         return electricVehicleService.getYearlyElectricRangeAveragePerMake();
     }
 
+    @PostMapping("/api/vehicles")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public ElectricVehicle addVehicle(@RequestBody ElectricVehicle electricVehicle) {
+        return electricVehicleService.saveVehicle(electricVehicle);
+    }
 
 }
