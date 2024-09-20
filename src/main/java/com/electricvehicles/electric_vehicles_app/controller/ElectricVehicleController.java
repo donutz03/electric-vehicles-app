@@ -209,11 +209,37 @@ public class ElectricVehicleController {
         return electricVehicleService.getYearlyElectricRangeAveragePerMake();
     }
 
+    @GetMapping("/api/vehicles/{id}")
+    @ResponseBody
+    public ElectricVehicle getVehicleById(@PathVariable String id) {
+        return electricVehicleService.getVehicleById(id);
+    }
+
     @PostMapping("/api/vehicles")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public ElectricVehicle addVehicle(@RequestBody ElectricVehicle electricVehicle) {
         return electricVehicleService.saveVehicle(electricVehicle);
     }
+
+    @PutMapping("/api/vehicles/{id}")
+    @ResponseBody
+    public ElectricVehicle updateVehicle(@PathVariable String id, @RequestBody ElectricVehicle electricVehicleDetails) {
+        return electricVehicleService.updateVehicle(id, electricVehicleDetails);
+    }
+
+    @PatchMapping("/api/vehicles/{id}")
+    @ResponseBody
+    public ElectricVehicle partialUpdateVehicle(@PathVariable String id, @RequestBody Map<String, Object> updates) {
+        return electricVehicleService.partialUpdateVehicle(id, updates);
+    }
+
+    @DeleteMapping("/api/vehicles/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteVehicle(@PathVariable String id) {
+        electricVehicleService.deleteVehicle(id);
+    }
+
+
 
 }

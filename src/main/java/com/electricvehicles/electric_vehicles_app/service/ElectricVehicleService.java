@@ -59,6 +59,11 @@ public class ElectricVehicleService {
         }
     }
 
+    public ElectricVehicle getVehicleById(String id) {
+        return electricVehicleRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Vehicle not found for this id :: " + id));
+    }
+
     public List<ElectricVehicle> getFirst20ElectricVehicles() {
         return electricVehicles.subList(0, Math.min(20, electricVehicles.size()));
     }
@@ -364,5 +369,67 @@ public class ElectricVehicleService {
                         )
                 ));
     }
+
+    public ElectricVehicle updateVehicle(String id, ElectricVehicle electricVehicleDetails) {
+        ElectricVehicle existingVehicle = electricVehicleRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Vehicle not found for this id :: " + id));
+
+        existingVehicle.setVin(electricVehicleDetails.getVin());
+        existingVehicle.setCounty(electricVehicleDetails.getCounty());
+        existingVehicle.setCity(electricVehicleDetails.getCity());
+        existingVehicle.setState(electricVehicleDetails.getState());
+        existingVehicle.setPostalCode(electricVehicleDetails.getPostalCode());
+        existingVehicle.setModelYear(electricVehicleDetails.getModelYear());
+        existingVehicle.setMake(electricVehicleDetails.getMake());
+        existingVehicle.setModel(electricVehicleDetails.getModel());
+        existingVehicle.setElectricVehicleType(electricVehicleDetails.getElectricVehicleType());
+        existingVehicle.setCafvEligibility(electricVehicleDetails.getCafvEligibility());
+        existingVehicle.setElectricRange(electricVehicleDetails.getElectricRange());
+        existingVehicle.setBaseMsrp(electricVehicleDetails.getBaseMsrp());
+        existingVehicle.setLegislativeDistrict(electricVehicleDetails.getLegislativeDistrict());
+        existingVehicle.setDOLVehicleId(electricVehicleDetails.getDOLVehicleId());
+        existingVehicle.setVehicleLocation(electricVehicleDetails.getVehicleLocation());
+        existingVehicle.setElectricUtility(electricVehicleDetails.getElectricUtility());
+        existingVehicle.setCensusTract(electricVehicleDetails.getCensusTract());
+
+        return electricVehicleRepository.save(existingVehicle);
+    }
+
+
+    public ElectricVehicle partialUpdateVehicle(String id, Map<String, Object> updates) {
+        ElectricVehicle existingVehicle = electricVehicleRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Vehicle not found for this id :: " + id));
+
+        updates.forEach((key, value) -> {
+            switch (key) {
+                case "vin": existingVehicle.setVin((String) value); break;
+                case "county": existingVehicle.setCounty((String) value); break;
+                case "city": existingVehicle.setCity((String) value); break;
+                case "state": existingVehicle.setState((String) value); break;
+                case "postalCode": existingVehicle.setPostalCode((String) value); break;
+                case "modelYear": existingVehicle.setModelYear((String) value); break;
+                case "make": existingVehicle.setMake((String) value); break;
+                case "model": existingVehicle.setModel((String) value); break;
+                case "electricVehicleType": existingVehicle.setElectricVehicleType((String) value); break;
+                case "cafvEligibility": existingVehicle.setCafvEligibility((String) value); break;
+                case "electricRange": existingVehicle.setElectricRange((String) value); break;
+                case "baseMsrp": existingVehicle.setBaseMsrp((String) value); break;
+                case "legislativeDistrict": existingVehicle.setLegislativeDistrict((String) value); break;
+                case "DOLVehicleId": existingVehicle.setDOLVehicleId((String) value); break;
+                case "vehicleLocation": existingVehicle.setVehicleLocation((String) value); break;
+                case "electricUtility": existingVehicle.setElectricUtility((String) value); break;
+                case "censusTract": existingVehicle.setCensusTract((String) value); break;
+            }
+        });
+
+        return electricVehicleRepository.save(existingVehicle);
+    }
+
+    public void deleteVehicle(String id) {
+        ElectricVehicle existingVehicle = electricVehicleRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Vehicle not found for this id :: " + id));
+        electricVehicleRepository.delete(existingVehicle);
+    }
+
 
 }
